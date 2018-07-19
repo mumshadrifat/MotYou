@@ -43,8 +43,21 @@ public class TestPagerAdapter extends PagerAdapter {
         View view=inflater.inflate(R.layout.page_list_item, container, false);  //page_list is also fragment
 
          TextView tv=view.findViewById(R.id.textView_id);
-         imageButton_one=view.findViewById(R.id.image_button_one);
-         imageButton_two=view.findViewById(R.id.image_button_two);
+         imageButton_one=view.findViewById(R.id.imageBtn_one_id);  // fragment er ImageButton(past: id related problem are occured here)
+         imageButton_two=view.findViewById(R.id.image_button_two); //
+        imageButton_one.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context, "Image One selected", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        imageButton_two.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context, "Image Two selected ", Toast.LENGTH_SHORT).show();
+            }
+        });
 
 
         view.setTag(position);
