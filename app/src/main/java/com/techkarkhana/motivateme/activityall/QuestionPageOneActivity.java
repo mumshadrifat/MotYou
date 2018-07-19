@@ -23,6 +23,8 @@ public class QuestionPageOneActivity extends AppCompatActivity {
     Button startQuesBtn;
     ImageButton btn_one,btn_two;
 
+    //image button
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
