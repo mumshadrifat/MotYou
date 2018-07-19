@@ -1,6 +1,7 @@
 package com.techkarkhana.motivateme.activityall;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -20,7 +21,7 @@ import cn.trinea.android.view.autoscrollviewpager.AutoScrollViewPager;
 
 public class QuestionPageOneActivity extends AppCompatActivity {
 
-    Button startQuesBtn;
+    Button startQuesBtn, goingNextbtn;
     ImageButton btn_one,btn_two;
 
     //image button
@@ -37,6 +38,16 @@ public class QuestionPageOneActivity extends AppCompatActivity {
             public void onClick(View v) {
                 //showQuestionDialog();
                 showDialog();
+                goingNextbtn.setVisibility(View.VISIBLE);
+
+            }
+        });
+        goingNextbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent nextIntent = new Intent(QuestionPageOneActivity.this,HomePageActivity.class);
+                startActivity(nextIntent);
+                finish();
             }
         });
     }
@@ -73,19 +84,18 @@ public class QuestionPageOneActivity extends AppCompatActivity {
 
 
         dialog.show();
+
     }
 
     public void showDialog()
     {
         Dialog dialog=new Dialog(this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setCanceledOnTouchOutside(true);
         dialog.setContentView(R.layout.pager_layout); //page_layout fragment
 
-       final List<PagerModel> pagerArr=new ArrayList<>();
+        List<PagerModel> pagerArr=new ArrayList<>();
 
-
-
-        pagerArr.add(new PagerModel("1","What do u want to put yourself"));
 
         pagerArr.add(new PagerModel("1","What do u want to put yourself"));
         pagerArr.add(new PagerModel("2","What song u are like most"));
@@ -106,8 +116,8 @@ public class QuestionPageOneActivity extends AppCompatActivity {
     private void init() {
 
         startQuesBtn=findViewById(R.id.questionStart_buttonID);
-        btn_one=findViewById(R.id.imageBtn_one_id);
-        btn_two=findViewById(R.id.imageBtn_two_id);
+        goingNextbtn=findViewById(R.id.going_next_btn_id);
+        goingNextbtn.setVisibility(View.INVISIBLE);
 
     }
 }

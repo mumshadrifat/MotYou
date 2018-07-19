@@ -12,6 +12,11 @@
         <activity
             android:name=".activityall.WelcomeSplashActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
 
         </activity>
         <activity android:name=".activityall.welcomeActivity2" />
@@ -20,12 +25,9 @@
         <activity android:name=".activityall.MazeOneActivity" />
         <activity android:name=".activityall.MazeTwoActivity" />
         <activity android:name=".activityall.QuestionPageOneActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
+        <activity android:name=".activityall.HomePageActivity"></activity>
     </application>
 
 </manifest>
